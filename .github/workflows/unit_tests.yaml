@@ -1,0 +1,34 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sdk: [stable, 2.17.0]
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Verify formatting
+        if: matrix.sdk == 'stable'
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze project source
+        run: dart analyze --fatal-infos
+
+      - name: Run tests
+        run: dart test

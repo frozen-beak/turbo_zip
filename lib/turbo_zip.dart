@@ -1,7 +1,7 @@
-/// Support for doing something awesome.
 ///
-/// More dartDocs go here.
-library;
+/// TurboZip is the library containing various algorithms for encoding and
+/// decoding plainText with compression
+///
+library turbo_zip;
 
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/algorithms/lzw/lzw.dart';
