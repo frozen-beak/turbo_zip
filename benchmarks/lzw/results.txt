@@ -1,0 +1,18 @@
+--------------------------------------------------
+Big File Benchmark Results:
+--------------------------------------------------
+Original Length: 1115394
+LZW Encoded Length: 212886
+GZIP Encoded Length: 434839
+LZW Compression: 80.91%
+GZIP Compression: 61.01%
+--------------------------------------------------
+
+--------------------------------------------------
+Small Texts Benchmark Results:
+--------------------------------------------------
+Total texts: 40001
+Average Text length: 26.88 characters
+Average LZW Compression: 6.53%
+Average GZIP Compression: -91.38%
+--------------------------------------------------
