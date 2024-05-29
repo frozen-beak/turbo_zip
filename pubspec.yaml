@@ -1,6 +1,6 @@
 name: turbo_zip
 description: Library containing various algorithms for encoding and decoding text and numbers
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/AdityaMotale/turbo_zip
 
 environment:
@@ -9,3 +9,11 @@ environment:
 dev_dependencies:
   lints: ^3.0.0
   test: ^1.24.0
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:

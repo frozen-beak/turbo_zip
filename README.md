@@ -17,7 +17,7 @@ A dart library containing various algorithms for encoding and decoding text and 
 
 ## Installation
 
-You can directly install `TurboZip` by adding `turbo_zip: ^1.0.0` to your _pubspec.yaml_ dependencies section
+You can directly install `TurboZip` by adding `turbo_zip: ^1.0.1` to your _pubspec.yaml_ dependencies section
 
 You can also add `TurboZip` to your project by executing,
 
