@@ -1,39 +1,63 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# TurboZip 🚀🤐
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+[![pub package](https://img.shields.io/pub/v/turbo_zip.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/turbo_zip)
+[![CI](https://img.shields.io/github/actions/workflow/status/AdityaMotale/turbo_zip/unit_tests.yaml?branch=main&logo=github-actions&logoColor=white)](https://github.com/AdityaMotale/turbo_zip/actions)
+[![Last Commits](https://img.shields.io/github/last-commit/AdityaMotale/turbo_zip?logo=git&logoColor=white)](https://github.com/AdityaMotale/turbo_zip/commits/main)
+[![Pull Requests](https://img.shields.io/github/issues-pr/AdityaMotale/turbo_zip?logo=github&logoColor=white)](https://github.com/AdityaMotale/turbo_zip/pulls)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/AdityaMotale/turbo_zip?logo=github&logoColor=white)](https://github.com/AdityaMotale/turbo_zip/issues)
+[![License](https://img.shields.io/github/license/AdityaMotale/turbo_zip?logo=open-source-initiative&logoColor=green)](https://github.com/AdityaMotale/turbo_zip/blob/main/LICENSE)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+A dart library containing various algorithms for encoding and decoding text and numbers with compression.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Quick Links
 
-## Features
+- [Installation](#installation)
+- [Algorithms](#algorithms)
+- [Contributing](#contributing)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Installation
 
-## Getting started
+You can directly install `TurboZip` by adding `turbo_zip: ^1.0.0` to your _pubspec.yaml_ dependencies section
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+You can also add `TurboZip` to your project by executing,
 
-## Usage
+- For Flutter Project - `flutter pub add turbo_zip`
+- For Dart Project - `dart pub add turbo_zip`
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+## Algorithms
+
+### LZW (Lempel-Ziv-Welch)
+
+LZW compresses data by replacing repeated substrings with shorter codes, creating a dictionary
+dynamically during encoding. It's a lossless method used in _GIF Images_ and _Unix File_ compression.
+
+_LZW_ performs significantly faster then GZip in dart code. Have a look at
+[benchmark results](./benchmarks/lzw/results.txt).
+
+Here is how you can use `LZW` in your code,
 
 ```dart
-const like = 'sample';
+import 'package:turbo_zip/turbo_zip.dart';
+
+final String originalText = "TO BE OR NOT TO BE OR TO BE OR NOT";
+
+final List<int> encodedText = LZW.encode(originalText);
+print("Encoded Text : $encodedText");
+
+final String decodedText = LZW.decode(encodedText);
+print("Decoded Text: $decodedText");
+
+print(originalText == decodedText); // true
 ```
 
-## Additional information
+> 👉 Note: Unicode characters like emojis are currently not supported by `LZW`. Keep in mind to handle exceptions thrown by both `encode` and `decode` functions of _LZW_ in your code.
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Benchmarks
+
+To benchmark `turbo_zip` algorithms against industry leading algorithms, dart scripts are created in
+`./benchmarks/`. Check them out [here](./benchmarks/).
+
+## Contributing
+
+PR's and Issues are open! If you'd like to improve `TurboZip`, please open an issue or an PR with
+your suggested changes in this [repo](https://github.com/AdityaMotale/turbo_zip). Happy Coding 🤝!
