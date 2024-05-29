@@ -32,7 +32,7 @@ LZW compresses data by replacing repeated substrings with shorter codes, creatin
 dynamically during encoding. It's a lossless method used in _GIF Images_ and _Unix File_ compression.
 
 _LZW_ performs significantly faster then GZip in dart code. Have a look at
-[benchmark results](./benchmarks/lzw/results.txt).
+[benchmark results](./benchmark/lzw/results.txt).
 
 Here is how you can use `LZW` in your code,
 
@@ -55,7 +55,7 @@ print(originalText == decodedText); // true
 ## Benchmarks
 
 To benchmark `turbo_zip` algorithms against industry leading algorithms, dart scripts are created in
-`./benchmarks/`. Check them out [here](./benchmarks/).
+`./benchmarks/`. Check them out [here](./benchmark/).
 
 ## Contributing
 
